@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+	<div class="contact">
+{% for category, msg in get_flashed_messages(True) %}
+<div class="flash {{category}}">{{msg}}</div>
+{% endfor %}
+		<h1>Contact Me</h1>
+		<form action="/contact" method="post" name="post" class="form-contact">
+			<p><label>Name: </label></p>
+			<p><input type="text" name="name" maxlength="50" required/></p>
+			<p><label>Email (optionally): </label></p>
+			<p><input type="text" name="email" maxlength="50" /></p>
+			<p><label>Phone number: </label></p>
+			<p><input type="number" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" maxlength="12" required></p>
+			<p><label>Message (optionally): </label></p>
+			<p><textarea name="massage" rows="7" cols="40"></textarea></p>
+			<p><input class="button-contact" type="submit" value="Send"/></p>
+		</form>
+	</div>
+{% endblock %}
