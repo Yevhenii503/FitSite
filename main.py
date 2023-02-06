@@ -21,12 +21,18 @@ def contact():
             flash('Thank you, we will contact you soon', category='success')
         else:
             flash('Send error!', category='error')
-    return render_template('contact.html')
+    return render_template('contact.html', title="Contact")
 
 
 @app.errorhandler(404)
 def pageNotFound(error):
     return render_template('page404.html', title="Page not found"), 404
+
+
+@app.route("/working_on_it")
+def working_on_it():
+
+    return render_template('work-page.html', title="Sorry...")
 
 
 if __name__ == "__main__":
