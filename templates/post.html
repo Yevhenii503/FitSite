@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{{ super() }}
+<div class="content-center">
+    <div class="posty-block">
+        {{post | safe}}
+    </div>
+</div>
+{% endblock %}

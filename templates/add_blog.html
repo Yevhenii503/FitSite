@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+<div class="content-center">
+{% for category, msg in get_flashed_messages(True) %}
+<div class="flash {{category}}">{{msg}}</div>
+{% endfor %}
+<form action="{{url_for('add_blog')}}" method="post" class="form-contact">
+	<p><label>Title of the article: </label></p>
+	<p><input type="text" name="name" value="" required /></p>
+	<p><label>URL blog: </label></p><input type="text" name="url" value="" required>
+	<p><label>The text of the article: </label></p>
+	<p><textarea name="post" rows=7 cols=40></textarea></p>
+	<p><input type="submit" value="Add" /></p>
+</form>
+</div>
+{% endblock %}

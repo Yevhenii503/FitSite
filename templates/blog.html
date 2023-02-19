@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+<main>
+{% for p in posts %}
+	<section>
+		<h2><a href="{{ url_for('showPost', alias=p.url)}}">{{p.title}}</a></h2>
+		<p>{{ p.text[:50] | striptags}}...</p>
+	</section>
+{% endfor %}
+</main>
+<p class="add"><a href="/add_blog">Add blog</a></p>
+{% endblock %}
